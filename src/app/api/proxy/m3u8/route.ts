@@ -349,7 +349,17 @@ function rewriteM3U8Content(content: string, baseUrl: string, req: Request, allo
     rewrittenLines.push(line);
   }
 
-  return rewrittenLines.join('\n');
+  const rewrittenContent = rewrittenLines.join('\n');
+  const source = new URL(req.url).searchParams.get('moontv-source');
+  if (!source) {
+    return rewrittenContent;
+  }
+
+  const sourceParam = `&moontv-source=${encodeURIComponent(source)}`;
+  return rewrittenContent.replace(
+    /(https?:\/\/[^/\s]+\/api\/proxy\/(?:segment|m3u8|key)\?url=[^"'\s]+)/g,
+    (proxyUrl) => proxyUrl.includes('&moontv-source=') ? proxyUrl : `${proxyUrl}${sourceParam}`
+  );
 }
 
 // 变量替换函数 - 参考 hls.js 标准实现

@@ -58,17 +58,20 @@ export async function refreshLiveChannels(liveInfo: {
   channelNumber?: number;
   disabled?: boolean;
 }): Promise<number> {
-  if (cachedLiveChannels[liveInfo.key]) {
-    delete cachedLiveChannels[liveInfo.key];
-  }
   const ua = liveInfo.ua || defaultUA;
   const response = await fetch(liveInfo.url, {
     headers: {
       'User-Agent': ua,
     },
   });
+  if (!response.ok) {
+    throw new Error(`Failed to refresh live source: HTTP ${response.status}`);
+  }
   const data = await response.text();
   const result = parseM3U(liveInfo.key, data);
+  if (result.channels.length === 0) {
+    throw new Error('Failed to refresh live source: empty channel list');
+  }
   const epgUrl = liveInfo.epg || result.tvgUrl;
   const epgs = await parseEpg(epgUrl, liveInfo.ua || defaultUA, result.channels.map(channel => channel.tvgId).filter(tvgId => tvgId));
   cachedLiveChannels[liveInfo.key] = {

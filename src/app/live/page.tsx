@@ -82,6 +82,7 @@ function LivePageClient() {
 
   // 频道相关
   const [currentChannels, setCurrentChannels] = useState<LiveChannel[]>([]);
+  const channelsRequestIdRef = useRef(0);
   const [currentChannel, setCurrentChannel] = useState<LiveChannel | null>(null);
   useEffect(() => {
     currentChannelRef.current = currentChannel;
@@ -381,6 +382,9 @@ function LivePageClient() {
 
   // 获取频道列表
   const fetchChannels = async (source: LiveSource) => {
+    const requestId = ++channelsRequestIdRef.current;
+    const isCurrentRequest = () => requestId === channelsRequestIdRef.current;
+
     try {
       setIsVideoLoading(true);
 
@@ -391,12 +395,16 @@ function LivePageClient() {
       }
 
       const result = await response.json();
+      if (!isCurrentRequest()) return;
+
       if (!result.success) {
         throw new Error(result.error || '获取频道列表失败');
       }
 
       const channelsData = result.data;
       if (!channelsData || channelsData.length === 0) {
+        if (!isCurrentRequest()) return;
+
         // 不抛出错误，而是设置空频道列表
         setCurrentChannels([]);
         setGroupedChannels({});
@@ -489,13 +497,19 @@ function LivePageClient() {
 
         // 使用更长的延迟，确保状态更新和DOM渲染完成
         setTimeout(() => {
-          simulateGroupClick(targetGroup);
+          if (isCurrentRequest()) {
+            simulateGroupClick(targetGroup);
+          }
         }, 500); // 增加延迟时间，确保状态更新和DOM渲染完成
       }
 
-      setIsVideoLoading(false);
+      if (isCurrentRequest()) {
+        setIsVideoLoading(false);
+      }
     } catch (err) {
       console.error('获取频道列表失败:', err);
+      if (!isCurrentRequest()) return;
+
       // 不设置错误，而是设置空频道列表
       setCurrentChannels([]);
       setGroupedChannels({});
@@ -527,6 +541,7 @@ function LivePageClient() {
       // 清空节目单信息
       setEpgData(null);
 
+      currentSourceRef.current = source;
       setCurrentSource(source);
       await fetchChannels(source);
     } catch (err) {
@@ -928,7 +943,9 @@ function LivePageClient() {
         ) {
           // 判断是否浏览器直连
           const isLiveDirectConnectStr = localStorage.getItem('liveDirectConnect');
-          const isLiveDirectConnect = isLiveDirectConnectStr === 'true';
+          const isLiveDirectConnect =
+            isLiveDirectConnectStr === 'true' &&
+            window.location.protocol !== 'https:';
           if (isLiveDirectConnect) {
             // 浏览器直连，使用 URL 对象处理参数
             try {
