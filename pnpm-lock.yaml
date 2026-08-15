@@ -88,7 +88,7 @@ importers:
         version: 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-window-infinite-loader:
         specifier: ^1.0.10
-        version: 1.0.10(react-window@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       redis:
         specifier: ^4.6.7
         version: 4.7.1
@@ -98,6 +98,9 @@ importers:
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
+      undici:
+        specifier: ^6.28.0
+        version: 6.28.0
       vidstack:
         specifier: ^0.6.15
         version: 0.6.15
@@ -140,10 +143,10 @@ importers:
         version: 19.1.6(@types/react@18.3.23)
       '@types/react-window':
         specifier: ^1.8.8
-        version: 1.8.8(@types/react@18.3.23)
+        version: 1.8.8
       '@types/react-window-infinite-loader':
         specifier: ^1.0.9
-        version: 1.0.9(@types/react@18.3.23)
+        version: 1.0.9
       '@types/testing-library__jest-dom':
         specifier: ^5.14.9
         version: 5.14.9
@@ -1571,18 +1574,14 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@18.3.23':
-    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
+  '@types/react-window-infinite-loader@1.0.9':
+    resolution: {integrity: sha512-gEInTjQwURCnDOFyIEK2+fWB5gTjqwx30O62QfxA9stE5aiB6EWkGj4UMhc0axq7/FV++Gs/TGW8FtgEx0S6Tw==}
 
   '@types/react-window@1.8.8':
     resolution: {integrity: sha512-8Ls660bHR1AUA2kuRvVG9D/4XpRC6wjAaPT9dil7Ckc76eP9TKWZwwmgfq8Q1LANX3QNDnoU4Zp48A3w+zK69Q==}
-    peerDependencies:
-      '@types/react': '*'
 
-  '@types/react-window-infinite-loader@1.0.9':
-    resolution: {integrity: sha512-gEInTjQwURCnDOFyIEK2+fWB5gTjqwx30O62QfxA9stE5aiB6EWkGj4UMhc0axq7/FV++Gs/TGW8FtgEx0S6Tw==}
-    peerDependencies:
-      '@types/react': '*'
+  '@types/react@18.3.23':
+    resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
 
   '@types/resolve@1.17.1':
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
@@ -2012,11 +2011,11 @@ packages:
     resolution: {integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==}
     engines: {node: '>=8'}
 
-  artplayer@5.3.0:
-    resolution: {integrity: sha512-yExO39MpEg4P+bxgChxx1eJfiUPE4q1QQRLCmqGhlsj+ANuaoEkR8hF93LdI5ZyrAcIbJkuEndxEiUoKobifDw==}
-
   artplayer-plugin-danmuku@5.2.0:
     resolution: {integrity: sha512-iHHSGEc0J+gl7imX4nmLqqC7LXmv8xeGf2lUevhhyUCoiCRZplecpKQICHjErVb1Yqyp1xCy6Sp8eYN+EpFWFw==}
+
+  artplayer@5.3.0:
+    resolution: {integrity: sha512-yExO39MpEg4P+bxgChxx1eJfiUPE4q1QQRLCmqGhlsj+ANuaoEkR8hF93LdI5ZyrAcIbJkuEndxEiUoKobifDw==}
 
   assert@2.0.0:
     resolution: {integrity: sha512-se5Cd+js9dXJnu6Ag2JFc00t+HmHOen+8Q+L7O9zI0PqQXr20uk2J0XQqMxZEeo5U50o8Nvmmx7dZrl+Ufr35A==}
@@ -3824,9 +3823,6 @@ packages:
     resolution: {integrity: sha512-zu3CjKRs63ybLLWPomRRgTDyYiSrk2bRRgw97ZmN3FGXuo9qUUhBSfYwnjmvSdLG2JOJfAwzDz99bPATSY81DQ==}
     engines: {node: '>=16'}
 
-  memoize-one@5.2.1:
-    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
-
   meow@8.1.2:
     resolution: {integrity: sha512-r85E3NdZ+mpYk1C6RjPFEMSE+s1iZMuHtsHAqY0DT3jZczl0diWUZ8g6oU7h0M9cD2EL+PzaYghhCLzR0ZNn5Q==}
     engines: {node: '>=10'}
@@ -4354,22 +4350,22 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
+  react-window-infinite-loader@1.0.10:
+    resolution: {integrity: sha512-NO/csdHlxjWqA2RJZfzQgagAjGHspbO2ik9GtWZb0BY1Nnapq0auG8ErI+OhGCzpjYJsCYerqUlK6hkq9dfAAA==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-window@2.2.0:
     resolution: {integrity: sha512-Y2L7yonHq6K1pQA2P98wT5QdIsEcjBTB7T8o6Mub12hH9eYppXoYu6vgClmcjlh3zfNcW2UrXiJJJqDxUY7GVw==}
-    engines: {node: '>=10'}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
 
-  react-window-infinite-loader@1.0.10:
-    resolution: {integrity: sha512-NO/csdHlxjWqA2RJZfzQgagAjGHspbO2ik9GtWZb0BY1Nnapq0auG8ErI+OhGCzpjYJsCYerqUlK6hkq9dfAAA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+    engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -5038,6 +5034,10 @@ packages:
 
   undici-types@7.8.0:
     resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
+
+  undici@6.28.0:
+    resolution: {integrity: sha512-LIY910g9TI13YS95lrMFrs8Rm/u/irgHeTWoKCoteeJ04CUJ92eEfj0rVn+7VKMPBpUPiUoBKfhNyLI23EE/KA==}
+    engines: {node: '>=18.17'}
 
   unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -7066,18 +7066,19 @@ snapshots:
     dependencies:
       '@types/react': 18.3.23
 
+  '@types/react-window-infinite-loader@1.0.9':
+    dependencies:
+      '@types/react': 18.3.23
+      '@types/react-window': 1.8.8
+
+  '@types/react-window@1.8.8':
+    dependencies:
+      '@types/react': 18.3.23
+
   '@types/react@18.3.23':
     dependencies:
       '@types/prop-types': 15.7.15
       csstype: 3.1.3
-
-  '@types/react-window@1.8.8(@types/react@18.3.23)':
-    dependencies:
-      '@types/react': 18.3.23
-
-  '@types/react-window-infinite-loader@1.0.9(@types/react@18.3.23)':
-    dependencies:
-      '@types/react': 18.3.23
 
   '@types/resolve@1.17.1':
     dependencies:
@@ -7531,11 +7532,11 @@ snapshots:
 
   arrify@2.0.1: {}
 
+  artplayer-plugin-danmuku@5.2.0: {}
+
   artplayer@5.3.0:
     dependencies:
       option-validator: 2.0.6
-
-  artplayer-plugin-danmuku@5.2.0: {}
 
   assert@2.0.0:
     dependencies:
@@ -8274,8 +8275,8 @@ snapshots:
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.1)(typescript@4.9.5)
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@8.57.1)
@@ -8298,7 +8299,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1):
+  eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0)(eslint@8.57.1):
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.4.1(supports-color@9.4.0)
@@ -8309,22 +8310,22 @@ snapshots:
       tinyglobby: 0.2.14
       unrs-resolver: 1.9.0
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.1)(typescript@4.9.5)
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0)(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -8335,7 +8336,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -9787,8 +9788,6 @@ snapshots:
 
   media-icons@1.1.5: {}
 
-  memoize-one@5.2.1: {}
-
   meow@8.1.2:
     dependencies:
       '@types/minimist': 1.2.5
@@ -10258,19 +10257,19 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react@18.3.1:
+  react-window-infinite-loader@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      loose-envify: 1.4.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-window@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-window-infinite-loader@1.0.10(react-window@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  react@18.3.1:
     dependencies:
-      react: 18.3.1
-      react-window: 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      loose-envify: 1.4.0
 
   read-cache@1.0.0:
     dependencies:
@@ -11016,6 +11015,8 @@ snapshots:
   uncrypto@0.1.3: {}
 
   undici-types@7.8.0: {}
+
+  undici@6.28.0: {}
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 

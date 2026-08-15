@@ -2,6 +2,7 @@
 
 import { getConfig } from "@/lib/config";
 import { db } from "@/lib/db";
+import { outboundFetch } from "@/lib/outboundFetch";
 
 const defaultUA = 'AptvPlayer/1.4.10'
 
@@ -59,7 +60,7 @@ export async function refreshLiveChannels(liveInfo: {
   disabled?: boolean;
 }): Promise<number> {
   const ua = liveInfo.ua || defaultUA;
-  const response = await fetch(liveInfo.url, {
+  const response = await outboundFetch(liveInfo.url, {
     headers: {
       'User-Agent': ua,
     },
@@ -98,7 +99,7 @@ async function parseEpg(epgUrl: string, ua: string, tvgIds: string[]): Promise<{
   const result: { [key: string]: { start: string; end: string; title: string }[] } = {};
 
   try {
-    const response = await fetch(epgUrl, {
+    const response = await outboundFetch(epgUrl, {
       headers: {
         'User-Agent': ua,
       },

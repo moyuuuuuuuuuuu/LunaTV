@@ -3,6 +3,7 @@
 import { NextResponse } from 'next/server';
 
 import { getConfig } from '@/lib/config';
+import { outboundFetch } from '@/lib/outboundFetch';
 
 export const runtime = 'nodejs';
 
@@ -135,7 +136,7 @@ export async function GET(request: Request) {
     const isHttps = decodedUrl.startsWith('https:');
     const agent = isHttps ? httpsAgent : httpAgent;
 
-    const imageResponse = await fetch(decodedUrl, {
+    const imageResponse = await outboundFetch(decodedUrl, {
       cache: 'no-cache',
       redirect: 'follow',
       credentials: 'same-origin',

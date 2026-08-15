@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 import { getConfig } from "@/lib/config";
 import { getBaseUrl, resolveUrl } from "@/lib/live";
+import { outboundFetch } from "@/lib/outboundFetch";
 
 export const runtime = 'nodejs';
 
@@ -80,7 +81,7 @@ export async function GET(request: Request) {
       'Connection': 'keep-alive'
     };
 
-    response = await fetch(decodedUrl, {
+    response = await outboundFetch(decodedUrl, {
       cache: 'no-cache',
       redirect: 'follow',
       credentials: 'same-origin',
